@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('stupid-remote:server');
+var debug = require('debug')('stupid-remote:www');
 var http = require('http');
 
 /**
@@ -13,8 +13,8 @@ var http = require('http');
  */
 var nodecec = require('node-cec');
 var NodeCec = nodecec.NodeCec;
-var CEC     = nodecec.CEC;
-var cecUsb  = new NodeCec( '/dev/ttyACM0' );
+var CEC = nodecec.CEC;
+var cecUsb = new NodeCec('/dev/ttyACM0');
 
 /**
  * Get port from environment and store in Express.
@@ -38,6 +38,8 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 
+// BEGIN cec-client
+
 /**
  * Kill cec-client process on exit
  */
@@ -59,16 +61,16 @@ cecUsb.once( 'ready', function(client) {
 
 cecUsb.on( 'REPORT_POWER_STATUS', function (packet, status) {
   debug('cecUsb reporting power status');
-  
+
   var keys = Object.keys( CEC.PowerStatus );
-  
+
   for (var i = keys.length - 1; i >= 0; i--) {
     if (CEC.PowerStatus[keys[i]] == status) {
       debug('POWER_STATUS:', keys[i]);
       break;
     }
   }
-  
+
 });
 
 cecUsb.on( 'ROUTING_CHANGE', function(packet, fromSource, toSource) {
@@ -84,6 +86,8 @@ cecUsb.on( 'ROUTING_CHANGE', function(packet, fromSource, toSource) {
  */
 cecUsb.start( 'cec-client', '-m', '-d', '8', '-b', 'r' );
 
+// END cec-client
+
 
 /**
  * Normalize a port into a number, string, or false.
@@ -91,17 +95,17 @@ cecUsb.start( 'cec-client', '-m', '-d', '8', '-b', 'r' );
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
-
+  
   if (isNaN(port)) {
     // named pipe
     return val;
   }
-
+  
   if (port >= 0) {
     // port number
     return port;
   }
-
+  
   return false;
 }
 
@@ -113,11 +117,11 @@ function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-
+  
   var bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
-
+  
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
