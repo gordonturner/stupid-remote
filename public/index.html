@@ -73,6 +73,42 @@ body {
 
 }
 
+.buttonRed {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.buttonBlue1 {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.buttonBlue2 {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.buttonBlue3 {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.buttonBlue4 {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.buttonOrange {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
 </style>
 
 
@@ -86,23 +122,31 @@ body {
         <!-- BEGIN Buttons -->
 
         <div id="task1" class="task">
-          <div class=""><a id="tivoButton" class="btn btn-circle btn-primary" href="#" role="button">Tivo</a><span class="btn description">Switch to Tivo</span></div>
+          <div class=""><a id="switchToggleButton" class="btn btn-circle buttonRed" href="#" role="button">Power</a><span class="btn description">Toggle Console Power On Off</span></div>
         </div>
 
         <div id="task2" class="task">
-          <div class=""><a id="kodiButton" class="btn btn-circle btn-info" href="#" role="button">Kodi</a><span class="btn description">Switch to Kodi</span></div>
+          <div class=""><a id="nesButton" class="btn btn-circle buttonBlue1" href="#" role="button">NES</a><span class="btn description">Switch to NES</span></div>
        </div>
 
        <div id="task3" class="task">
-          <div class=""><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a><span class="btn description">Switch to PS 4</span></div>
+          <div class=""><a id="snesButton" class="btn btn-circle buttonBlue1" href="#" role="button">SNES</a><span class="btn description">Switch to SNES</span></div>
        </div>
        
         <div id="task4" class="task">
-          <div class=""><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a><span class="btn description">Turn TV on</span></div>
+          <div class=""><a id="n64Button" class="btn btn-circle buttonBlue3" href="#" role="button">N64</a><span class="btn description">Switch to N64</span></div>
         </div>
 
         <div id="task5" class="task">
-          <div class=""><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a><span class="btn description">Turn TV off</span></div>
+          <div class=""><a id="gameCubeButton" class="btn btn-circle buttonBlue4" href="#" role="button">GC</a><span class="btn description">Switch to GameCube</span></div>
+        </div>
+
+        <div id="task6" class="task">
+          <div class=""><a id="ps1Button" class="btn btn-circle buttonOrange" href="#" role="button">PS1</a><span class="btn description">Switch to PlayStation</span></div>
+        </div>
+
+        <div id="task7" class="task">
+          <div class=""><a id="ps2Button" class="btn btn-circle buttonOrange" href="#" role="button">PS2</a><span class="btn description">Switch to PlayStation 2</span></div>
         </div>
 
           <!-- END Buttons -->
@@ -123,9 +167,9 @@ body {
       /* BEGIN Button Bindings */
     
       //
-      $("#tivoButton").click( function( event ) {
+      $("#switchToggleButton").click( function( event ) {
 
-      	$.get( "./cec/tivo", function( data ) {
+      	$.get( "./lirc/switchToggle", function( data ) {
           console.log(data);
         });
         
@@ -133,20 +177,19 @@ body {
 
 
       //
-      $("#kodiButton").click( function( event ) {
+      $("#nesButton").click( function( event ) {
 
-      	$.get( "./cec/kodi", function( data ) {
+      	$.get( "./lirc/nes", function( data ) {
           console.log(data);
         });
 
       } );
 
 
-
       //
-      $("#ps4Button").click( function( event ) {
+      $("#snesButton").click( function( event ) {
 
-        $.get( "./cec/ps4", function( data ) {
+        $.get( "./lirc/snes", function( data ) {
           console.log(data);
         });
 
@@ -154,9 +197,9 @@ body {
       
       
       //
-      $("#tvOnButton").click( function( event ) {
+      $("#n64Button").click( function( event ) {
 
-      	$.get( "./cec/tvOn", function( data ) {
+      	$.get( "./lirc/n64", function( data ) {
           console.log(data);
         });
         
@@ -164,9 +207,29 @@ body {
       
       
       //
-      $("#tvOffButton").click( function( event ) {
+      $("#gameCubeButton").click( function( event ) {
 
-      	$.get( "./cec/tvOff", function( data ) {
+      	$.get( "./lirc/gameCube", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+      
+      
+      //
+      $("#ps1Button").click( function( event ) {
+
+      	$.get( "./lirc/ps1", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+      
+      
+      //
+      $("#ps2Button").click( function( event ) {
+
+      	$.get( "./lirc/ps2", function( data ) {
           console.log(data);
         });
         
