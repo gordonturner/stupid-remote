@@ -1,7 +1,9 @@
 var express = require('express');
-var exec = require('child_process').exec, child;
 var router = express.Router();
 var www = require('../bin/www');
+
+var lircNode = require('lirc_node');
+lircNode.init();
 
 var debug = require('debug')('stupid-remote:lirc');
 
@@ -25,14 +27,15 @@ var debug = require('debug')('stupid-remote:lirc');
  */
 router.get('/switchToggle', function (req, res, next) {
   debug('called switchToggle');
-  
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_POWER');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
-});
 
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_POWER', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });  
+});
 
 /**
  * handle GET /nes request
@@ -55,11 +58,13 @@ router.get('/switchToggle', function (req, res, next) {
 router.get('/nes', function (req, res, next) {
   debug('called nes');
   
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_1');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_1', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });
 });
 
 
@@ -84,11 +89,13 @@ router.get('/nes', function (req, res, next) {
 router.get('/snes', function (req, res, next) {
   debug('called snes');
   
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_2');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_2', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });
 });
 
 
@@ -113,11 +120,13 @@ router.get('/snes', function (req, res, next) {
 router.get('/n64', function (req, res, next) {
   debug('called n64');
   
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_3');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_3', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });
 });
 
 
@@ -142,11 +151,13 @@ router.get('/n64', function (req, res, next) {
 router.get('/gameCube', function (req, res, next) {
   debug('called gameCube');
   
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_4');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_4', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });
 });
 
 
@@ -171,11 +182,13 @@ router.get('/gameCube', function (req, res, next) {
 router.get('/ps1', function (req, res, next) {
   debug('called ps1');
   
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_5');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_5', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });
 });
 
 
@@ -200,11 +213,13 @@ router.get('/ps1', function (req, res, next) {
 router.get('/ps2', function (req, res, next) {
   debug('called ps2');
   
-  exec('/usr/bin/irsend SEND_ONCE JVC-RM-AJ777 KEY_6');
-  
-  res.writeHead(200, {"Content-Type": "application/json"});
-  var html = '{"status":"ok"}';
-  res.end(html);
+  lircNode.irsend.send_once('JVC-RM-AJ777', 'KEY_6', function() {
+    console.log("Sent switch power command!");
+    
+    res.writeHead(200, {"Content-Type": "application/json"});
+    var html = '{"status":"ok"}';
+    res.end(html);
+  });
 });
 
 
