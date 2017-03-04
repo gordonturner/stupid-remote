@@ -32,7 +32,20 @@ body {
 
 .task {
   padding-bottom: 10px;
+  height: 125px;
 }
+
+
+.button-lead {
+  position: relative;
+}
+
+.button-body {
+  position: relative;
+  top: -100px;
+  right: -65px;
+}
+
 
 .btn-circle {
   font-color: #4d4d4d;
@@ -54,15 +67,13 @@ body {
   background-color: #666666;
   font-color: white;
   
-  width: 80%;
   height: 80px;
   text-align: left;
   
   overflow: hidden;
   text-overflow: ellipsis;
   
-  padding: 20px 0 0 60px;
-  margin-left: -50px;
+  padding: 20px 60px 0 60px;
   
   font-size: 25px;
   line-height: 1.42;
@@ -122,31 +133,38 @@ body {
         <!-- BEGIN Buttons -->
 
         <div id="task1" class="task">
-          <div class=""><a id="switchToggleButton" class="btn btn-circle buttonRed" href="#" role="button">Power</a><span class="btn description">Toggle Console Power On Off</span></div>
+            <div class="button-lead"><a id="switchToggleButton" class="btn btn-circle buttonRed" href="#" role="button">Power</a></div>
+            <div class="button-body"><span class="btn description">Toggle Console Power On Off</span></div>
         </div>
 
         <div id="task2" class="task">
-          <div class=""><a id="nesButton" class="btn btn-circle buttonBlue1" href="#" role="button">NES</a><span class="btn description">Switch to NES</span></div>
+            <div class="button-lead"><a id="nesButton" class="btn btn-circle buttonBlue1" href="#" role="button">NES</a></div>
+            <div class="button-body"><span class="btn description">Switch to NES</span></div>
        </div>
 
        <div id="task3" class="task">
-          <div class=""><a id="snesButton" class="btn btn-circle buttonBlue1" href="#" role="button">SNES</a><span class="btn description">Switch to SNES</span></div>
+            <div class="button-lead"><a id="snesButton" class="btn btn-circle buttonBlue1" href="#" role="button">SNES</a></div>
+            <div class="button-body"><span class="btn description">Switch to SNES</span></div>
        </div>
        
         <div id="task4" class="task">
-          <div class=""><a id="n64Button" class="btn btn-circle buttonBlue3" href="#" role="button">N64</a><span class="btn description">Switch to N64</span></div>
+            <div class="button-lead"><a id="n64Button" class="btn btn-circle buttonBlue3" href="#" role="button">N64</a></div>
+            <div class="button-body"><span class="btn description">Switch to N64</span></div>
         </div>
 
         <div id="task5" class="task">
-          <div class=""><a id="gameCubeButton" class="btn btn-circle buttonBlue4" href="#" role="button">GC</a><span class="btn description">Switch to GameCube</span></div>
+            <div class="button-lead"><a id="gameCubeButton" class="btn btn-circle buttonBlue4" href="#" role="button">GC</a></div>
+            <div class="button-body"><span class="btn description">Switch to GameCube</span></div>
         </div>
 
         <div id="task6" class="task">
-          <div class=""><a id="ps1Button" class="btn btn-circle buttonOrange" href="#" role="button">PS1</a><span class="btn description">Switch to PlayStation</span></div>
+            <div class="button-lead"><a id="ps1Button" class="btn btn-circle buttonOrange" href="#" role="button">PS1</a></div>
+            <div class="button-body"><span class="btn description">Switch to PlayStation</span></div>
         </div>
 
         <div id="task7" class="task">
-          <div class=""><a id="ps2Button" class="btn btn-circle buttonOrange" href="#" role="button">PS2</a><span class="btn description">Switch to PlayStation 2</span></div>
+            <div class="button-lead"><a id="ps2Button" class="btn btn-circle buttonOrange" href="#" role="button">PS2</a></div>
+            <div class="button-body"><span class="btn description">Switch to PlayStation 2</span></div>
         </div>
 
           <!-- END Buttons -->
