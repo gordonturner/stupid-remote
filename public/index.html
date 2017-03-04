@@ -32,7 +32,20 @@ body {
 
 .task {
   padding-bottom: 10px;
+  height: 125px;
 }
+
+
+.button-lead {
+  position: relative;
+}
+
+.button-body {
+  position: relative;
+  top: -100px;
+  right: -65px;
+}
+
 
 .btn-circle {
   font-color: #4d4d4d;
@@ -54,15 +67,14 @@ body {
   background-color: #666666;
   font-color: white;
   
-  width: 80%;
   height: 80px;
+  width: 90%;
   text-align: left;
   
   overflow: hidden;
   text-overflow: ellipsis;
   
-  padding: 20px 0 0 60px;
-  margin-left: -50px;
+  padding: 20px 60px 0 60px;
   
   font-size: 25px;
   line-height: 1.42;
@@ -86,23 +98,28 @@ body {
         <!-- BEGIN Buttons -->
 
         <div id="task1" class="task">
-          <div class=""><a id="tivoButton" class="btn btn-circle btn-primary" href="#" role="button">Tivo</a><span class="btn description">Switch to Tivo</span></div>
+            <div class="button-lead"><a id="tivoButton" class="btn btn-circle btn-primary" href="#" role="button">Tivo</a></div>
+            <div class="button-body"><span class="btn description">Switch to Tivo</span></div>
         </div>
 
         <div id="task2" class="task">
-          <div class=""><a id="kodiButton" class="btn btn-circle btn-info" href="#" role="button">Kodi</a><span class="btn description">Switch to Kodi</span></div>
+            <div class="button-lead"><a id="kodiButton" class="btn btn-circle btn-info" href="#" role="button">Kodi</a></div>
+            <div class="button-body"><span class="btn description">Switch to Kodi</span></div>
        </div>
 
        <div id="task3" class="task">
-          <div class=""><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a><span class="btn description">Switch to PS 4</span></div>
+            <div class="button-lead"><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a></div>
+            <div class="button-body"><span class="btn description">Switch to PS 4</span></div>
        </div>
        
         <div id="task4" class="task">
-          <div class=""><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a><span class="btn description">Turn TV on</span></div>
+            <div class="button-lead"><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a></div>
+            <div class="button-body"><span class="btn description">Turn TV on</span></div>
         </div>
 
         <div id="task5" class="task">
-          <div class=""><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a><span class="btn description">Turn TV off</span></div>
+            <div class="button-lead"><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a></div>
+            <div class="button-body"><span class="btn description">Turn TV off</span></div>
         </div>
 
           <!-- END Buttons -->
