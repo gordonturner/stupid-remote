@@ -31,7 +31,7 @@ app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'
 
 app.use('/', index);
 app.use('/lirc', lirc);
-//app.use('/cec', cec);
+// app.use('/cec', cec);
 app.use('/swagger', swagger);
 
 // catch 404 and forward to error handler
