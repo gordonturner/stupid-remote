@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- The above meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Stupid Remote</title>
+
+    <!-- Bootstrap -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Icons -->
+	<link
+	  rel="shortcut icon"
+	  href="./images/favicon.png" />
+	<link
+	  rel="apple-touch-icon"
+	  href="./images/apple-touch-icon.png" />
+	<link
+	  rel="apple-touch-icon-precomposed"
+	  href="./images/apple-touch-icon-precomposed.png" />
+
+<style>
+
+body {
+  padding-top: 10px;
+  background-color: #333333;
+}
+
+.task {
+  padding-bottom: 10px;
+  height: 125px;
+}
+
+
+.button-lead {
+  position: relative;
+}
+
+.button-body {
+  position: relative;
+  top: -100px;
+  right: -65px;
+}
+
+
+.btn-circle {
+  font-color: #4d4d4d;
+  
+  z-index: 8;
+  position: relative;
+  
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.42;
+  border-radius: 60px;
+}
+
+.description {
+  background-color: #666666;
+  font-color: white;
+  
+  height: 80px;
+  width: 90%;
+  text-align: left;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  padding: 20px 60px 0 60px;
+  
+  font-size: 25px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+.container {
+
+}
+
+.buttonRed {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.buttonBlue1 {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.buttonBlue2 {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.buttonBlue3 {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.buttonBlue4 {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.buttonOrange {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+</style>
+
+
+  </head>  
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+
+        <!-- BEGIN Buttons -->
+
+        <div id="task1" class="task">
+            <div class="button-lead"><a id="switchToggleButton" class="btn btn-circle buttonRed" href="#" role="button">Power</a></div>
+            <div class="button-body"><span class="btn description">Toggle Console Power On Off</span></div>
+        </div>
+
+        <div id="task2" class="task">
+            <div class="button-lead"><a id="nesButton" class="btn btn-circle buttonBlue1" href="#" role="button">NES</a></div>
+            <div class="button-body"><span class="btn description">Switch to NES</span></div>
+       </div>
+
+       <div id="task3" class="task">
+            <div class="button-lead"><a id="snesButton" class="btn btn-circle buttonBlue1" href="#" role="button">SNES</a></div>
+            <div class="button-body"><span class="btn description">Switch to SNES</span></div>
+       </div>
+       
+        <div id="task4" class="task">
+            <div class="button-lead"><a id="n64Button" class="btn btn-circle buttonBlue3" href="#" role="button">N64</a></div>
+            <div class="button-body"><span class="btn description">Switch to N64</span></div>
+        </div>
+
+        <div id="task5" class="task">
+            <div class="button-lead"><a id="gameCubeButton" class="btn btn-circle buttonBlue4" href="#" role="button">GC</a></div>
+            <div class="button-body"><span class="btn description">Switch to GameCube</span></div>
+        </div>
+
+        <div id="task6" class="task">
+            <div class="button-lead"><a id="ps1Button" class="btn btn-circle buttonOrange" href="#" role="button">PS1</a></div>
+            <div class="button-body"><span class="btn description">Switch to PlayStation</span></div>
+        </div>
+
+        <div id="task7" class="task">
+            <div class="button-lead"><a id="ps2Button" class="btn btn-circle buttonOrange" href="#" role="button">PS2</a></div>
+            <div class="button-body"><span class="btn description">Switch to PlayStation 2</span></div>
+        </div>
+
+          <!-- END Buttons -->
+
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    
+    <script>
+
+
+      /* BEGIN Button Bindings */
+    
+      //
+      $("#switchToggleButton").click( function( event ) {
+
+      	$.get( "./lirc/switchToggle", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+
+
+      //
+      $("#nesButton").click( function( event ) {
+
+      	$.get( "./lirc/nes", function( data ) {
+          console.log(data);
+        });
+
+      } );
+
+
+      //
+      $("#snesButton").click( function( event ) {
+
+        $.get( "./lirc/snes", function( data ) {
+          console.log(data);
+        });
+
+      } );
+      
+      
+      //
+      $("#n64Button").click( function( event ) {
+
+      	$.get( "./lirc/n64", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+      
+      
+      //
+      $("#gameCubeButton").click( function( event ) {
+
+      	$.get( "./lirc/gameCube", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+      
+      
+      //
+      $("#ps1Button").click( function( event ) {
+
+      	$.get( "./lirc/ps1", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+      
+      
+      //
+      $("#ps2Button").click( function( event ) {
+
+      	$.get( "./lirc/ps2", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+
+      /* END Button Bindings */
+      
+    </script>
+    
+  </body>
+</html>

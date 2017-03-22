@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- The above meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Stupid Remote</title>
+
+    <!-- Bootstrap -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Icons -->
+	<link
+	  rel="shortcut icon"
+	  href="./images/favicon.png" />
+	<link
+	  rel="apple-touch-icon"
+	  href="./images/apple-touch-icon.png" />
+	<link
+	  rel="apple-touch-icon-precomposed"
+	  href="./images/apple-touch-icon-precomposed.png" />
+
+<style>
+
+body {
+  padding-top: 10px;
+  background-color: #333333;
+}
+
+.task {
+  padding-bottom: 10px;
+  height: 125px;
+}
+
+
+.button-lead {
+  position: relative;
+}
+
+.button-body {
+  position: relative;
+  top: -100px;
+  right: -65px;
+}
+
+
+.btn-circle {
+  font-color: #4d4d4d;
+  
+  z-index: 8;
+  position: relative;
+  
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.42;
+  border-radius: 60px;
+}
+
+.description {
+  background-color: #666666;
+  font-color: white;
+  
+  height: 80px;
+  width: 90%;
+  text-align: left;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  padding: 20px 60px 0 60px;
+  
+  font-size: 25px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+.container {
+
+}
+
+</style>
+
+
+  </head>  
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+
+        <!-- BEGIN Buttons -->
+
+        <div id="task1" class="task">
+            <div class="button-lead"><a id="tivoButton" class="btn btn-circle btn-primary" href="#" role="button">Tivo</a></div>
+            <div class="button-body"><span class="btn description">Switch to Tivo</span></div>
+        </div>
+
+        <div id="task2" class="task">
+            <div class="button-lead"><a id="kodiButton" class="btn btn-circle btn-info" href="#" role="button">Kodi</a></div>
+            <div class="button-body"><span class="btn description">Switch to Kodi</span></div>
+       </div>
+
+       <div id="task3" class="task">
+            <div class="button-lead"><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a></div>
+            <div class="button-body"><span class="btn description">Switch to PS 4</span></div>
+       </div>
+       
+        <div id="task4" class="task">
+            <div class="button-lead"><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a></div>
+            <div class="button-body"><span class="btn description">Turn TV on</span></div>
+        </div>
+
+        <div id="task5" class="task">
+            <div class="button-lead"><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a></div>
+            <div class="button-body"><span class="btn description">Turn TV off</span></div>
+        </div>
+
+          <!-- END Buttons -->
+
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    
+    <script>
+
+
+      /* BEGIN Button Bindings */
+    
+      //
+      $("#tivoButton").click( function( event ) {
+
+      	$.get( "./cec/tivo", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+
+
+      //
+      $("#kodiButton").click( function( event ) {
+
+      	$.get( "./cec/kodi", function( data ) {
+          console.log(data);
+        });
+
+      } );
+
+
+
+      //
+      $("#ps4Button").click( function( event ) {
+
+        $.get( "./cec/ps4", function( data ) {
+          console.log(data);
+        });
+
+      } );
+      
+      
+      //
+      $("#tvOnButton").click( function( event ) {
+
+      	$.get( "./cec/tvOn", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+      
+      
+      //
+      $("#tvOffButton").click( function( event ) {
+
+      	$.get( "./cec/tvOff", function( data ) {
+          console.log(data);
+        });
+        
+      } );
+
+      /* END Button Bindings */
+      
+    </script>
+    
+  </body>
+</html>
