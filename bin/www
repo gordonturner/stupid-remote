@@ -9,14 +9,6 @@ var debug = require('debug')('stupid-remote:www');
 var http = require('http');
 
 /**
- * node-cec dependencies
- */
-// var nodecec = require('node-cec');
-// var NodeCec = nodecec.NodeCec;
-// var CEC = nodecec.CEC;
-// var cecUsb = new NodeCec('/dev/ttyACM0');
-
-/**
  * Get port from environment and store in Express.
  */
 
@@ -36,56 +28,6 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-
-// BEGIN cec-client
-// 
-// /**
-//  * Kill cec-client process on exit
-//  */
-// process.on( 'SIGINT', function() {
-//   debug('SIGINT, stopping cec');
-//   if ( cecUsb != null ) {
-//     cecUsb.stop();
-//   }
-// });
-// 
-// 
-// /**
-//  * Setup cec event handling
-//  */
-// cecUsb.once( 'ready', function(client) {
-//   debug('cecUsb ready' );
-//   client.sendCommand( 0xf0, CEC.Opcode.GIVE_DEVICE_POWER_STATUS );
-// });
-// 
-// cecUsb.on( 'REPORT_POWER_STATUS', function (packet, status) {
-//   debug('cecUsb reporting power status');
-// 
-//   var keys = Object.keys( CEC.PowerStatus );
-// 
-//   for (var i = keys.length - 1; i >= 0; i--) {
-//     if (CEC.PowerStatus[keys[i]] == status) {
-//       debug('POWER_STATUS:', keys[i]);
-//       break;
-//     }
-//   }
-// 
-// });
-// 
-// cecUsb.on( 'ROUTING_CHANGE', function(packet, fromSource, toSource) {
-//   debug('cecUsb routing changed from ' + fromSource + ' to ' + toSource );
-// });
-// 
-// 
-// /**
-//  * Start cec client
-//  * -m  = start in monitor-mode
-//  * -d8 = set log level to 8 (=TRAFFIC) (-d 8)
-//  * -br = logical address set to `recording device`
-//  */
-// cecUsb.start( 'cec-client', '-m', '-d', '8', '-b', 'r' );
-// END cec-client
 
 
 /**
@@ -148,4 +90,68 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-// exports.cecUsb = cecUsb;
+
+// BEGIN cec-client
+
+
+/**
+ * node-cec dependencies
+ */
+ 
+ 
+var nodecec = require('node-cec');
+var NodeCec = nodecec.NodeCec;
+var CEC = nodecec.CEC;
+var cecUsb = new NodeCec('/dev/ttyACM0');
+
+/**
+ * Kill cec-client process on exit
+ */
+process.on( 'SIGINT', function() {
+  debug('SIGINT, stopping cec');
+  if ( cecUsb != null ) {
+    cecUsb.stop();
+  }
+});
+
+
+/**
+ * Setup cec event handling
+ */
+cecUsb.once( 'ready', function(client) {
+  debug('cecUsb ready' );
+  client.sendCommand( 0xf0, CEC.Opcode.GIVE_DEVICE_POWER_STATUS );
+});
+
+cecUsb.on( 'REPORT_POWER_STATUS', function (packet, status) {
+  debug('cecUsb reporting power status');
+
+  var keys = Object.keys( CEC.PowerStatus );
+
+  for (var i = keys.length - 1; i >= 0; i--) {
+    if (CEC.PowerStatus[keys[i]] == status) {
+      debug('POWER_STATUS:', keys[i]);
+      break;
+    }
+  }
+
+});
+
+cecUsb.on( 'ROUTING_CHANGE', function(packet, fromSource, toSource) {
+  debug('cecUsb routing changed from ' + fromSource + ' to ' + toSource );
+});
+
+
+/**
+ * Start cec client
+ * -m  = start in monitor-mode
+ * -d8 = set log level to 8 (=TRAFFIC) (-d 8)
+ * -br = logical address set to `recording device`
+ */
+cecUsb.start( 'cec-client', '-m', '-d', '8', '-b', 'r' );
+
+
+exports.cecUsb = cecUsb;
+
+
+// END cec-client
