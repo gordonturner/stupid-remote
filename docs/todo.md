@@ -2,3 +2,5 @@
 - Make release
 - Implement api with authentication key
 - Implement swagger ui
+
+- Look at https://nodered.org/

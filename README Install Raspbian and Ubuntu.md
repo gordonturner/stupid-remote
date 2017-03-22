@@ -55,14 +55,21 @@ https://github.com/gordonturner/stupid-remote/releases/latest
 - Rename and uncompress:
 
 ```
-mv X.X.tar.gz stupid-remote.tar.gz
-tar -zvxf stupid-remote.tar.gz
+tar -zvxf X.X.tar.gz
+mv X.X stupid-remote
+```
+
+- Run npm:
+
+```
+cd stupid-remote
+npm install
 ```
 
 - Copy `stupid-remote` folder to `/opt`:
 
 ```
-sudo cp -R ./stupid-remote /opt
+sudo cp ./stupid-remote /opt
 ```
 
 - Change permissions:
@@ -85,7 +92,7 @@ sudo vi /etc/systemd/system/nodeserver.service
 Description=Node.js Server
 
 [Service]
-ExecStart=/usr/local/bin/node /opt/stupid-remote/bin/www
+ExecStart=/usr/bin/nodejs /opt/stupid-remote/bin/www
 WorkingDirectory=/opt/stupid-remote
 Restart=always
 RestartSec=10
