@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var www = require('../bin/www');
 
+var debug = require('debug')('stupid-remote:lirc');
+
 var lircNode = require('lirc_node');
 lircNode.init();
-
-var debug = require('debug')('stupid-remote:lirc');
 
 /**
  * handle GET /tvOn request

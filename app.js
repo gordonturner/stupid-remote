@@ -14,8 +14,8 @@ var app = express();
 
 // BEGIN
 
-//var lirc = require('./routes/lirc');
-//app.use('/lirc', lirc);
+var lirc = require('./routes/lirc');
+app.use('/lirc', lirc);
 
 // END lirc
 
