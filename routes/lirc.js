@@ -46,7 +46,7 @@ router.get('/switchToggle', function (req, res, next) {
  * /lirc/nes:
  *   get:
  *     tags:
- *       - Switch Control
+ *       - Switch Active Device Control
  *     description: Change input to NES
  *     produces:
  *       - application/json

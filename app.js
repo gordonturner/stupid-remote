@@ -28,6 +28,14 @@ app.use('/cec', cec);
 // END cec
 
 
+// BEGIN macro
+
+var macro = require('./routes/macro');
+app.use('/macro', macro);
+
+// END macro
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
