@@ -14,8 +14,8 @@ var app = express();
 
 // BEGIN
 
-//var lirc = require('./routes/lirc');
-//app.use('/lirc', lirc);
+var lirc = require('./routes/lirc');
+app.use('/lirc', lirc);
 
 // END lirc
 
@@ -26,6 +26,14 @@ var cec = require('./routes/cec');
 app.use('/cec', cec);
 
 // END cec
+
+
+// BEGIN macro
+
+var macro = require('./routes/macro');
+app.use('/macro', macro);
+
+// END macro
 
 
 // view engine setup

@@ -108,16 +108,21 @@ body {
        </div>
 
        <div id="task3" class="task">
+           <div class="button-lead"><a id="auxButton" class="btn btn-circle btn-warning" href="#" role="button">AUX</a></div>
+           <div class="button-body"><span class="btn description">Switch to AUX</span></div>
+       </div>
+
+       <div id="task4" class="task">
             <div class="button-lead"><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a></div>
             <div class="button-body"><span class="btn description">Switch to PS 4</span></div>
        </div>
-       
-        <div id="task4" class="task">
+
+        <div id="task5" class="task">
             <div class="button-lead"><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a></div>
             <div class="button-body"><span class="btn description">Turn TV on</span></div>
         </div>
 
-        <div id="task5" class="task">
+        <div id="task6" class="task">
             <div class="button-lead"><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a></div>
             <div class="button-body"><span class="btn description">Turn TV off</span></div>
         </div>
@@ -161,11 +166,22 @@ body {
 
 
       //
+      $("#auxButton").click( function( event ) {
+
+          $.get( "./macro/aux", function( data ) {
+              console.log(data);
+          });
+
+      } );
+
+
+
+      //
       $("#ps4Button").click( function( event ) {
 
-        $.get( "./cec/ps4", function( data ) {
-          console.log(data);
-        });
+          $.get( "./cec/ps4", function( data ) {
+              console.log(data);
+          });
 
       } );
       
