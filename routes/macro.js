@@ -22,7 +22,7 @@ debug(lircNode.remotes);
  * irsend -d /run/lirc/lircd-lirc0 SEND_ONCE "Samsung" "KEY_UP" && sleep 0.5
  * irsend -d /run/lirc/lircd-lirc0 SEND_ONCE "Samsung" "KEY_UP" && sleep 0.5
  * irsend -d /run/lirc/lircd-lirc0 SEND_ONCE "Samsung" "KEY_UP" && sleep 2
- * irsend -d /run/lirc/lircd-lirc0 SEND_ONCE "Samsung" "KEY_CYCLEWINDOWS" 
+ * irsend -d /run/lirc/lircd-lirc0 SEND_ONCE "Samsung" "KEY_CYCLEWINDOWS"
  *
  * www.cecUsb.sendCommand( 0x1F, 0x82, 0x20, 0x00 );
  *
