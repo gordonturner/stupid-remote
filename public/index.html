@@ -98,36 +98,41 @@ body {
         <!-- BEGIN Buttons -->
 
         <div id="task1" class="task">
-            <div class="button-lead"><a id="tivoButton" class="btn btn-circle btn-primary" href="#" role="button">Tivo</a></div>
-            <div class="button-body"><span class="btn description">Switch to Tivo</span></div>
+          <div class="button-lead"><a id="tivoButton" class="btn btn-circle btn-primary" href="#" role="button">Tivo</a></div>
+          <div class="button-body"><span class="btn description">Switch to Tivo</span></div>
         </div>
 
         <div id="task2" class="task">
-            <div class="button-lead"><a id="kodiButton" class="btn btn-circle btn-info" href="#" role="button">Kodi</a></div>
-            <div class="button-body"><span class="btn description">Switch to Kodi</span></div>
-       </div>
+          <div class="button-lead"><a id="kodiButton" class="btn btn-circle btn-info" href="#" role="button">Kodi</a></div>
+          <div class="button-body"><span class="btn description">Switch to Kodi</span></div>
+        </div>
 
-       <div id="task3" class="task">
-           <div class="button-lead"><a id="auxButton" class="btn btn-circle btn-warning" href="#" role="button">Aux</a></div>
-           <div class="button-body"><span class="btn description">Switch to Aux</span></div>
-       </div>
+        <div id="task2" class="task">
+          <div class="button-lead"><a id="avSwitchButton" class="btn btn-circle btn-warning" href="#" role="button">AV</a></div>
+          <div class="button-body"><span class="btn description">Switch to AVSwitch</span></div>
+        </div>
 
-       <div id="task4" class="task">
-            <div class="button-lead"><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a></div>
-            <div class="button-body"><span class="btn description">Switch to PS 4</span></div>
-       </div>
+        <div id="task3" class="task">
+          <div class="button-lead"><a id="auxButton" class="btn btn-circle btn-warning" href="#" role="button">Aux</a></div>
+          <div class="button-body"><span class="btn description">Switch to Aux</span></div>
+        </div>
+
+        <div id="task4" class="task">
+          <div class="button-lead"><a id="ps4Button" class="btn btn-circle btn-warning" href="#" role="button">PS 4</a></div>
+          <div class="button-body"><span class="btn description">Switch to PS 4</span></div>
+        </div>
 
         <div id="task5" class="task">
-            <div class="button-lead"><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a></div>
-            <div class="button-body"><span class="btn description">Turn TV on</span></div>
+          <div class="button-lead"><a id="tvOnButton" class="btn btn-circle btn-success" href="#" role="button">TV On</a></div>
+          <div class="button-body"><span class="btn description">Turn TV on</span></div>
         </div>
 
         <div id="task6" class="task">
-            <div class="button-lead"><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a></div>
-            <div class="button-body"><span class="btn description">Turn TV off</span></div>
+          <div class="button-lead"><a id="tvOffButton" class="btn btn-circle btn-danger" href="#" role="button">TV Off</a></div>
+          <div class="button-body"><span class="btn description">Turn TV off</span></div>
         </div>
 
-          <!-- END Buttons -->
+        <!-- END Buttons -->
 
       </div>
 
@@ -157,12 +162,21 @@ body {
       //
       $("#kodiButton").click( function( event ) {
 
-      	$.get( "./cec/kodi", function( data ) {
+        $.get( "./cec/kodi", function( data ) {
           console.log(data);
         });
 
       } );
 
+
+      //
+      $("#avSwitchButton").click( function( event ) {
+
+        $.get( "./cec/avSwitch", function( data ) {
+          console.log(data);
+        });
+
+      } );
 
 
       //
