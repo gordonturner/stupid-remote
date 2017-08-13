@@ -10,6 +10,17 @@ A web app to control devices over HDMI-cec, turning tvs on and off, switching in
 Tested to work on Raspbian and OMSC, but should work on any other linux distribution.
 
 
+Demo and Install
+----------------
+
+The following instructions will allow stupid-remote to be run as a local user for development and testing.
+
+For more permanent installations, please see:
+
+README Install Raspbian.md
+README Install OSMC.md
+
+
 Update And Upgrade
 ------------------
 
