@@ -1,14 +1,5 @@
-README
-------
-
-
-TL;DR
------
-
-A web app to control devices over HDMI-cec, turning tvs on and off, switching inputs adjusting volume.
-
-Tested to work on Raspbian and OMSC, but should work on any other linux distribution.
-
+README Install As A Service on Raspbian
+=======================================
 
 Update And Upgrade
 ------------------
@@ -87,8 +78,18 @@ https://github.com/Pulse-Eight/libcec
 ```
 
 
-Run stupid-remote
------------------
+Create nodeserver User
+----------------------
+
+- Run:
+
+```
+sudo adduser nodeserver
+```
+
+
+Install stupid-remote
+---------------------
 
 - Download latest source from:
 
@@ -104,40 +105,106 @@ wget https://github.com/gordonturner/stupid-remote/archive/3.0.tar.gz
 tar -zvxf 3.0.tar.gz
 ```
 
-- From the root of the project, update npm and start:
+- From the root of the project, update npm:
 
 ```
 cd stupid-remote-3.0
 npm install
-node ./bin/www
 ```
 
-- Or run with DEBUG on:
+- Rename and copy `stupid-remote` folder to `/opt`:
 
 ```
-cd stupid-remote-3.0
-DEBUG=* node ./bin/www
+mv ./stupid-remote-3.0 ./stupid-remote
+sudo cp -R ./stupid-remote /opt
 ```
 
-- web ui:
+- Change permissions:
 
-http://HOSTNAME:8080/
-
-
-- swagger:
-
-http://HOSTNAME:8080/api-docs/
+```
+sudo chown -R nodeserver.nodeserver /opt/stupid-remote
+```
 
 
-Customization
--------------
+Create systemd unit File
+------------------------
 
-- First understand your cec-client commands, I suggest starting here:
+- Install on Raspbian and Ubuntu:
 
-http://blog.gordonturner.ca/2016/12/14/using-cec-client-on-a-raspberry-pi/
+```
+sudo vi /etc/systemd/system/nodeserver.service
+```
+```
+[Unit]
+Description=Node.js Server
+
+[Service]
+ExecStart=/usr/local/bin/node /opt/stupid-remote/bin/www
+WorkingDirectory=/opt/stupid-remote
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-server
+
+# NOTE: Settings for running on OSMC
+# BEGIN OSMC
+#User=osmc
+#Group=osmc
+#Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/osmc/bin/
+# END OSMC
+
+# NOTE: Settings for running on rasbian
+# BEGIN Raspbian
+User=pi
+Group=pi
+Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin
+# END Raspbian
+
+Environment=DEBUG=express:*
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+```
+
+- Reload:
+
+```
+sudo systemctl daemon-reload
+```
+
+- Test:
+
+```
+sudo systemctl start nodeserver
+sudo systemctl stop nodeserver
+```
+
+- Enable systemd:
+
+```
+sudo systemctl enable nodeserver.service
+```
+
+- Disable systemd:
+
+```
+sudo systemctl disable nodeserver.service
+```
 
 
-- Edit `/routes/cec.js` to create handlers that will call the appropriate cec-client commands
+Manage
+------
 
-- Edit `/public/index.html` to call the handlers and set the appropriate names in the UI
+```
+sudo systemctl start nodeserver
+sudo systemctl stop nodeserver
+sudo systemctl status nodeserver
+```
 
+- Monitor logs:
+
+```
+sudo journalctl -u nodeserver -f
+```
