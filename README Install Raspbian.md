@@ -1,8 +1,25 @@
 README Install As A Service on Raspbian
 =======================================
 
+The following instructions will setup stupid-remote to be run as a service, with its own user.
+
+
+Software Versions
+-----------------
+
+- OS, tested with the following distributions:
+Raspbian Stretch April 18th 2018 (2018-04-18-raspbian-stretch.zip)
+
+- NodeJS version: 10.3.0
+
+- cec-client tested:
+libCEC version: 4.0.2
+
+
 Update And Upgrade
 ------------------
+
+- Update and upgrade the OS:
 
 ```
 sudo apt-get update
@@ -15,13 +32,6 @@ sudo apt-get autoremove -y
 Install Node and Npm
 --------------------
 
-- Remove existing node.js and npm if present, the Raspbian version is out of date.
-
-```
-sudo apt-get remove nodejs-legacy -y
-sudo apt-get autoremove -y
-```
-
 - Download the latest LTS version of node
 - There are different downloads for the different versions of Raspberry Pi
 - To download the right one, run the following:
@@ -30,15 +40,22 @@ sudo apt-get autoremove -y
 uname -m
 ```
 
+- If the result is `armv6l` download the armv6l package
 - If the result is `armv7l` download the armv7l package
 - If the result is `armv8l` download the armv8l package
 
-- For example, download armv7l, install and restart:
+- Open in a browser:
+
+https://nodejs.org/dist/latest/
+
+- Choose the appropriate packages
+
+- For example, download armv6l, install and restart:
 
 ```
-wget https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-armv7l.tar.xz
-tar -vxf node-v6.11.2-linux-armv7l.tar.xz
-cd node-v6.11.2-linux-armv7l
+wget https://nodejs.org/dist/latest/node-v10.3.0-linux-armv6l.tar.xz
+tar -vxf node-v10.3.0-linux-armv6l.tar.xz
+cd node-v10.3.0-linux-armv6l
 sudo cp -R * /usr/local/
 sudo reboot
 ```
@@ -49,26 +66,26 @@ sudo reboot
 node -v
 ```
 ```
-v6.11.2
+v10.3.0
 ```
 
 
 Install cec-client
 ------------------
 
-- Check to see if `cec-client` is already installed:
+- Install `cec-client`:
+
+```
+sudo apt-get install cec-utils
+```
+
+- Confirm version:
 
 ```
 cec-client -i
 ```
 ```
-libCEC version: 4.0.2,  compiled on Sat May 27 16:37:50 UTC 2017 by root@compiler2 on Linux 3.16.0-4-amd64 (armv7l), features: P8_USB, DRM, P8_detect, RPi
-```
-
-- If a `-bash: cec-client: command not found`, install:
-
-```
-sudo apt-get install cec-utils
+libCEC version: 4.0.2, git revision: libcec-4.0.2+30-8adc786~dirty, compiled on Mon Aug 21 09:41:41 UTC 2017 by root@hostname: Name or service not known on Linux 4.4.0-92-generic (armv7l), features: P8_USB, DRM, P8_detect, randr, RPi
 ```
 
 - Alternately, follow the instructions and install from:
@@ -115,6 +132,7 @@ npm install
 - Rename and copy `stupid-remote` folder to `/opt`:
 
 ```
+cd ..
 mv ./stupid-remote-3.0 ./stupid-remote
 sudo cp -R ./stupid-remote /opt
 ```

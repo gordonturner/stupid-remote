@@ -1,28 +1,39 @@
 README Install OSMC
 ===================
 
+The following instructions will setup stupid-remote to be run as a service, with its own user.
+
+
+Software Versions
+-----------------
+
+- OS, tested with the following distributions:
+Open Source Media Center running Kodi 17.6 (OSMC_TGT_rbp1_20180502.img.gz)
+
+- NodeJS version: 10.3.0
+
+- cec-client tested:
+libCEC version: 4.0.2
+
+
 Update And Upgrade
 ------------------
 
+- Update and upgrade the OS:
+
 ```
 sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt-get dist-upgrade -y
 ```
 
 - NOTE: Do not run `sudo apt-get upgrade -y`, it will not complete the proper upgrade
 - See:
+
 https://osmc.tv/wiki/general/keeping-your-osmc-system-up-to-date/
 
 
 Install Node and Npm
 --------------------
-
-- Remove existing node.js and npm if present, the Raspbian version is out of date.
-
-```
-sudo apt-get remove nodejs-legacy -y
-sudo apt-get autoremove -y
-```
 
 - Install build-essential and xz-utils to uncompress the node.js archive:
 
@@ -38,15 +49,22 @@ sudo apt-get install build-essential xz-utils
 uname -m
 ```
 
+- If the result is `armv6l` download the armv6l package
 - If the result is `armv7l` download the armv7l package
 - If the result is `armv8l` download the armv8l package
 
-- For example, download armv7l, install and restart:
+- Open in a browser:
+
+https://nodejs.org/dist/latest/
+
+- Choose the appropriate packages
+
+- For example, download armv6l, install and restart:
 
 ```
-wget https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-armv7l.tar.xz
-tar -vxf node-v6.11.2-linux-armv7l.tar.xz
-cd node-v6.11.2-linux-armv7l
+wget https://nodejs.org/dist/latest/node-v10.3.0-linux-armv6l.tar.xz
+tar -vxf node-v10.3.0-linux-armv6l.tar.xz
+cd node-v10.3.0-linux-armv6l
 sudo cp -R * /usr/local/
 sudo reboot
 ```
@@ -57,7 +75,7 @@ sudo reboot
 node -v
 ```
 ```
-v6.11.2
+v10.3.0
 ```
 
 
@@ -123,7 +141,7 @@ npm install
 - NOTE: OSMC web interface defaults to 8080, so you will have to change the port for stupid-remote:
 
 ```
-sudo vi /opt/stupid-remote/bin/www
+sudo vi ./stupid-remote/bin/www
 ```
 ```
 ...
@@ -167,21 +185,14 @@ Restart=always
 RestartSec=10
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=node-server
+SyslogIdentifier=nodeserver
 
-# NOTE: Settings for running on OSMC
-# BEGIN OSMC
-User=osmc
-Group=osmc
-Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/osmc/bin/
-# END OSMC
-
-# NOTE: Settings for running on rasbian
+# NOTE: Settings for running on rasbian as nodeserver
 # BEGIN Raspbian
-#User=pi
-#Group=pi
-#Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin
-# END Raspbian
+User=pi
+Group=pi
+Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin
+# END Raspbian as nodeserver
 
 Environment=DEBUG=express:*
 Environment=NODE_ENV=production
