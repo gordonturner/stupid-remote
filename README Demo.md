@@ -73,19 +73,19 @@ v10.3.0
 Install cec-client
 ------------------
 
-- Check to see if `cec-client` is already installed:
+- Install `cec-client`:
+
+```
+sudo apt-get install cec-utils
+```
+
+- Confirm version:
 
 ```
 cec-client -i
 ```
 ```
-libCEC version: 4.0.2,  compiled on Sat May 27 16:37:50 UTC 2017 by root@compiler2 on Linux 3.16.0-4-amd64 (armv7l), features: P8_USB, DRM, P8_detect, RPi
-```
-
-- If a `-bash: cec-client: command not found`, install:
-
-```
-sudo apt-get install cec-utils
+libCEC version: 4.0.2, git revision: libcec-4.0.2+30-8adc786~dirty, compiled on Mon Aug 21 09:41:41 UTC 2017 by root@hostname: Name or service not known on Linux 4.4.0-92-generic (armv7l), features: P8_USB, DRM, P8_detect, randr, RPi
 ```
 
 - Alternately, follow the instructions and install from:
@@ -95,8 +95,8 @@ https://github.com/Pulse-Eight/libcec
 ```
 
 
-Run stupid-remote
------------------
+Download and Run
+----------------
 
 - Download latest source from:
 
