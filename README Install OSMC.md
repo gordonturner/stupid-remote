@@ -85,7 +85,7 @@ Install cec-client
 - Install `cec-client`:
 
 ```
-sudo apt-get install cec-utils
+sudo apt-get install cec-utils -y
 ```
 
 - NOTE: May already be installed, if so continue to next step

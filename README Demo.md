@@ -22,8 +22,7 @@ Update And Upgrade
 - Update and upgrade the OS:
 
 ```
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 sudo apt-get autoremove -y
 ```
@@ -76,7 +75,7 @@ Install cec-client
 - Install `cec-client`:
 
 ```
-sudo apt-get install cec-utils
+sudo apt-get install cec-utils -y
 ```
 
 - Confirm version:
