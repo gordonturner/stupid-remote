@@ -112,19 +112,19 @@ Install stupid-remote
 https://github.com/gordonturner/stupid-remote/releases/latest
 
 ```
-wget https://github.com/gordonturner/stupid-remote/archive/3.0.tar.gz
+wget https://github.com/gordonturner/stupid-remote/archive/4.0.tar.gz
 ```
 
 - Uncompress the download:
 
 ```
-tar -zvxf 3.0.tar.gz
+tar -zvxf 4.0.tar.gz
 ```
 
 - From the root of the project, update npm:
 
 ```
-cd stupid-remote-3.0
+cd stupid-remote-4.0
 npm install
 ```
 
@@ -132,7 +132,7 @@ npm install
 
 ```
 cd ..
-mv ./stupid-remote-3.0 ./stupid-remote
+mv ./stupid-remote-4.0 ./stupid-remote
 sudo cp -R ./stupid-remote /opt
 ```
 

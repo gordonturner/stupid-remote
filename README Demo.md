@@ -102,19 +102,19 @@ Download and Run
 https://github.com/gordonturner/stupid-remote/releases/latest
 
 ```
-wget https://github.com/gordonturner/stupid-remote/archive/3.0.tar.gz
+wget https://github.com/gordonturner/stupid-remote/archive/4.0.tar.gz
 ```
 
 - Uncompress the download:
 
 ```
-tar -zvxf 3.0.tar.gz
+tar -zvxf 4.0.tar.gz
 ```
 
 - From the root of the project, update npm and start:
 
 ```
-cd stupid-remote-3.0
+cd stupid-remote-4.0
 npm install
 node ./bin/www
 ```
@@ -122,7 +122,7 @@ node ./bin/www
 - Or run with DEBUG on:
 
 ```
-cd stupid-remote-3.0
+cd stupid-remote-4.0
 DEBUG=* node ./bin/www
 ```
 
