@@ -29,6 +29,7 @@ var swaggerSpec = swaggerJSDoc(options);
 router.get('/swagger.json', function (req, res, next) {
   debug('called swagger.json');
   
+  res.setHeader('Content-Type', 'application/json');
   res.write(JSON.stringify(swaggerSpec));
   res.end();
 });

@@ -24,3 +24,13 @@ README Install Raspbian.md
 README Install OSMC.md
 
 
+Swagger UI
+----------
+
+Please note, the Swagger UI is here:
+
+http://localhost:8080/api-docs/
+
+And the specification file (paste into the top of the page) is here:
+
+http://localhost:8080/swagger/swagger.json
