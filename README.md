@@ -10,18 +10,29 @@ A web app to control devices over HDMI-cec, turning tvs on and off, switching in
 Tested to work on Raspbian and OMSC, but should work on any other linux distribution.
 
 
+Dependencies
+------------
+
+*PLEASE NOTE:* This project requires cec-client and lircd binaries to be installed.
+
+If they are not installed, the project will not start.
+
+Normally, this project is installed on a Raspberry Pi, where the cec-client and lircd apps are available.
+
+
 Run Application
 ---------------
 
 To run stupid-remote as a local user for development and testing please see:
 
-README Demo.md
+README Demo.md  
 
 
 For more permanent installations please see:
 
-README Install Raspbian.md
-README Install OSMC.md
+README Install Raspbian.md  
+
+README Install OSMC.md  
 
 
 Swagger UI
