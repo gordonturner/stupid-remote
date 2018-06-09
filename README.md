@@ -1,5 +1,5 @@
 README
-------
+======
 
 
 TL;DR
@@ -7,87 +7,41 @@ TL;DR
 
 A web app to control devices over HDMI-cec, turning tvs on and off, switching inputs adjusting volume.
 
-
-Install Node and Npm
---------------------
-
-- Install node.js and npm:
-
-```
-sudo apt-get update
-sudo apt-get install nodejs npm
-```
+Tested to work on Raspbian and OMSC, but should work on any other linux distribution.
 
 
-Install cec-client
-------------------
+Dependencies
+------------
 
-- Check to see if `cec-client` is already installed:
+*PLEASE NOTE:* This project requires cec-client and lircd binaries to be installed.
 
-```
-cec-client -h
-```
+If they are not installed, the project will not start.
 
-- If a `-bash: cec-client: command not found`, install:
-
-```
-sudo apt-get install cec-client
-```
-
-- Alternately, follow the instructions and install from:
-
-```
-https://github.com/Pulse-Eight/libcec
-```
+Normally, this project is installed on a Raspberry Pi, where the cec-client and lircd apps are available.
 
 
-Run stupid-remote
------------------
+Run Application
+---------------
 
-- Download latest source from:
+To run stupid-remote as a local user for development and testing please see:
 
-https://github.com/gordonturner/stupid-remote/releases/latest
-
-- Rename and uncompress:
-
-```
-mv X.X.tar.gz stupid-remote.tar.gz
-tar -zvxf stupid-remote.tar.gz
-```
-
-- From the root of the project, run:
-
-```
-cd stupid-remote
-node ./bin/www
-```
-
-- Or run with DEBUG on:
-
-```
-cd stupid-remote
-DEBUG=* node ./bin/www
-```
-
-- web ui:
-
-http://HOSTNAME:8080/
+README Demo.md  
 
 
-- swagger:
+For more permanent installations please see:
 
-http://HOSTNAME:8080/api-docs/
+README Install Raspbian.md  
 
-
-Customization
--------------
-
-- First understand your cec-client commands, I suggest starting here:
-
-http://blog.gordonturner.ca/2016/12/14/using-cec-client-on-a-raspberry-pi/
+README Install OSMC.md  
 
 
-- Edit `/routes/cec.js` to create handlers that will call the appropriate cec-client commands
+Swagger UI
+----------
 
-- Edit `/public/index.html` to call the handlers and set the appropriate names in the UI
+Please note, the Swagger UI is here:
 
+http://localhost:8080/api-docs/
+
+And the specification file (paste into the top of the page) is here:
+
+http://localhost:8080/swagger/swagger.json

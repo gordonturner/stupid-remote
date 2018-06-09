@@ -121,6 +121,35 @@ router.get('/kodi', function (req, res, next) {
 
 
 /**
+ * handle GET /avSwitch request
+ *
+ * echo "tx 1F:82:40:00" | cec-client /dev/ttyACM0 -s -d 4
+ *
+ * @swagger
+ * /cec/avSwitch:
+ *   get:
+ *     tags:
+ *       - Switch Active Device Control
+ *     description: Change input to avSwitch
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *     responses:
+ *       200:
+ *         description: Successfully changed input to avSwitch
+ */
+router.get('/avSwitch', function (req, res, next) {
+  debug('called avSwitch');
+  
+  www.cecUsb.sendCommand( 0x1F, 0x82, 0x40, 0x00 );
+  
+  res.writeHead(200, {"Content-Type": "application/json"});
+  var html = '{"status":"ok"}';
+  res.end(html);
+});
+
+
+/**
  * handle GET /ps4 request
  *
  * echo "tx 1F:82:30:00" | cec-client /dev/ttyACM0 -s -d 4
