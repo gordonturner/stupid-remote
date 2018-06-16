@@ -191,23 +191,17 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 ```
 
-- Test:
+- Test start and stop:
 
 ```
 sudo systemctl start nodeserver
 sudo systemctl stop nodeserver
 ```
 
-- Enable systemd:
+- Enable boot at start:
 
 ```
 sudo systemctl enable nodeserver.service
-```
-
-- Disable systemd:
-
-```
-sudo systemctl disable nodeserver.service
 ```
 
 

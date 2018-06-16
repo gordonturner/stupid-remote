@@ -106,16 +106,6 @@ https://github.com/Pulse-Eight/libcec
 ```
 
 
-Create nodeserver User
-----------------------
-
-- Run:
-
-```
-sudo adduser nodeserver
-```
-
-
 Install stupid-remote
 ---------------------
 
@@ -143,7 +133,7 @@ npm install
 - NOTE: OSMC web interface defaults to 8080, so you will have to change the port for stupid-remote:
 
 ```
-sudo vi ./stupid-remote/bin/www
+sudo vi ./bin/www
 ```
 ```
 ...
@@ -164,7 +154,7 @@ sudo cp -R ./stupid-remote /opt
 - Change permissions:
 
 ```
-sudo chown -R nodeserver.nodeserver /opt/stupid-remote
+sudo chown -R osmc.osmc /opt/stupid-remote
 ```
 
 
@@ -187,14 +177,21 @@ Restart=always
 RestartSec=10
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=nodeserver
+SyslogIdentifier=node-server
 
-# NOTE: Settings for running on rasbian as nodeserver
+# NOTE: Settings for running on OSMC
+# BEGIN OSMC
+User=osmc
+Group=osmc
+Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/osmc/bin/
+# END OSMC
+
+# NOTE: Settings for running on rasbian
 # BEGIN Raspbian
-User=pi
-Group=pi
-Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin
-# END Raspbian as nodeserver
+#User=pi
+#Group=pi
+#Environment=PATH=/usr/bin:/bin:/usr/sbin:/sbin
+# END Raspbian
 
 Environment=DEBUG=express:*
 Environment=NODE_ENV=production
@@ -209,23 +206,17 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 ```
 
-- Test:
+- Test start and stop:
 
 ```
 sudo systemctl start nodeserver
 sudo systemctl stop nodeserver
 ```
 
-- Enable systemd:
+- Enable boot at start:
 
 ```
 sudo systemctl enable nodeserver.service
-```
-
-- Disable systemd:
-
-```
-sudo systemctl disable nodeserver.service
 ```
 
 

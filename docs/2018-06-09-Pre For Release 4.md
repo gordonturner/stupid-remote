@@ -4,8 +4,14 @@
 - Corrected the swagger ui path to default to the swagger.json file
 - Edited: `/public/api-docs/index.html `
 - Changed url to `http://localhost:8080/swagger/swagger.json`
+- Updated notes and READMEs
 
-- Updated notes and readmes
+
+
+
+
+
+
 
 
 
