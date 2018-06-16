@@ -25,14 +25,13 @@ Run Application
 
 To run stupid-remote as a local user for development and testing please see:
 
-README Demo.md  
-
+[README Demo.md](README Demo.md)  
 
 For more permanent installations please see:
 
-README Install Raspbian.md  
+[README Install Raspbian.md](README Install Raspbian.md)  
 
-README Install OSMC.md  
+[README Install OSMC.md](README Install OSMC.md)  
 
 
 Swagger UI
