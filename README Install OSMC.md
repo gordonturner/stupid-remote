@@ -10,7 +10,7 @@ Software Versions
 - OS, tested with the following distributions:
 Open Source Media Center running Kodi 17.6 (OSMC_TGT_rbp1_20180502.img.gz)
 
-- NodeJS version: 10.3.0
+- NodeJS version: 10.4.1
 
 - cec-client tested:
 libCEC version: 4.0.2
@@ -41,7 +41,7 @@ Install Node and Npm
 sudo apt-get install build-essential xz-utils
 ```
 
-- Download the latest LTS version of node
+- Download the latest version of node
 - There are different downloads for the different versions of Raspberry Pi
 - To download the right one, run the following:
 
@@ -62,9 +62,9 @@ https://nodejs.org/dist/latest/
 - For example, download armv6l, install and restart:
 
 ```
-wget https://nodejs.org/dist/latest/node-v10.3.0-linux-armv6l.tar.xz
-tar -vxf node-v10.3.0-linux-armv6l.tar.xz
-cd node-v10.3.0-linux-armv6l
+wget https://nodejs.org/dist/latest/node-v10.4.1-linux-armv6l.tar.xz
+tar -vxf node-v10.4.1-linux-armv6l.tar.xz
+cd node-v10.4.1-linux-armv6l
 sudo cp -R * /usr/local/
 sudo reboot
 ```
@@ -75,7 +75,7 @@ sudo reboot
 node -v
 ```
 ```
-v10.3.0
+v10.4.1
 ```
 
 
@@ -114,40 +114,27 @@ Install stupid-remote
 https://github.com/gordonturner/stupid-remote/releases/latest
 
 ```
-wget https://github.com/gordonturner/stupid-remote/archive/4.0.tar.gz
+wget https://github.com/gordonturner/stupid-remote/archive/4.2.tar.gz
 ```
 
 - Uncompress the download:
 
 ```
-tar -zvxf 4.0.tar.gz
+tar -zvxf 4.2.tar.gz
 ```
 
 - From the root of the project, update npm:
 
 ```
-cd stupid-remote-4.0
+cd stupid-remote-4.2
 npm install
-```
-
-- NOTE: OSMC web interface defaults to 8080, so you will have to change the port for stupid-remote:
-
-```
-sudo vi ./bin/www
-```
-```
-...
-/* CHANGED */
-/* var port = normalizePort(process.env.PORT || '8080'); */
-var port = normalizePort(process.env.PORT || '8081');
-...
 ```
 
 - Rename and copy `stupid-remote` folder to `/opt`:
 
 ```
 cd ..
-mv ./stupid-remote-4.0 ./stupid-remote
+mv ./stupid-remote-4.2 ./stupid-remote
 sudo cp -R ./stupid-remote /opt
 ```
 
