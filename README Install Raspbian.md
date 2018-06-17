@@ -1,5 +1,5 @@
-README Install As A Service on Raspbian
-=======================================
+README Install Raspbian
+=======================
 
 The following instructions will setup stupid-remote to be run as a service, with its own user.
 
