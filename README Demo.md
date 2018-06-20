@@ -10,7 +10,7 @@ Software Versions
 - OS, tested with the following distributions:
 Raspbian Stretch April 18th 2018 (2018-04-18-raspbian-stretch.zip)
 
-- NodeJS version: 10.3.0
+- NodeJS version: 10.4.1
 
 - cec-client tested:
 libCEC version: 4.0.2
@@ -31,7 +31,7 @@ sudo apt-get autoremove -y
 Install Node and Npm
 --------------------
 
-- Download the latest LTS version of node
+- Download the latest version of node
 - There are different downloads for the different versions of Raspberry Pi
 - To download the right one, run the following:
 
@@ -52,9 +52,9 @@ https://nodejs.org/dist/latest/
 - For example, download armv6l, install and restart:
 
 ```
-wget https://nodejs.org/dist/latest/node-v10.3.0-linux-armv6l.tar.xz
-tar -vxf node-v10.3.0-linux-armv6l.tar.xz
-cd node-v10.3.0-linux-armv6l
+wget https://nodejs.org/dist/latest/node-v10.4.1-linux-armv6l.tar.xz
+tar -vxf node-v10.4.1-linux-armv6l.tar.xz
+cd node-v10.4.1-linux-armv6l
 sudo cp -R * /usr/local/
 sudo reboot
 ```
@@ -65,7 +65,7 @@ sudo reboot
 node -v
 ```
 ```
-v10.3.0
+v10.4.1
 ```
 
 
@@ -102,19 +102,19 @@ Download and Run
 https://github.com/gordonturner/stupid-remote/releases/latest
 
 ```
-wget https://github.com/gordonturner/stupid-remote/archive/4.0.tar.gz
+wget https://github.com/gordonturner/stupid-remote/archive/4.2.tar.gz
 ```
 
 - Uncompress the download:
 
 ```
-tar -zvxf 4.0.tar.gz
+tar -zvxf 4.2.tar.gz
 ```
 
 - From the root of the project, update npm and start:
 
 ```
-cd stupid-remote-4.0
+cd stupid-remote-4.2
 npm install
 node ./bin/www
 ```
@@ -122,18 +122,18 @@ node ./bin/www
 - Or run with DEBUG on:
 
 ```
-cd stupid-remote-4.0
+cd stupid-remote-4.2
 DEBUG=* node ./bin/www
 ```
 
 - web ui:
 
-http://HOSTNAME:8080/
+http://HOSTNAME:8181/
 
 
 - swagger:
 
-http://HOSTNAME:8080/api-docs/
+http://HOSTNAME:8181/api-docs/
 
 
 Customization
