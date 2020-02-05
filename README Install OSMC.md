@@ -66,10 +66,9 @@ wget https://nodejs.org/dist/latest/node-v10.4.1-linux-armv6l.tar.xz
 tar -vxf node-v10.4.1-linux-armv6l.tar.xz
 cd node-v10.4.1-linux-armv6l
 sudo cp -R * /usr/local/
-sudo reboot
 ```
 
-- On restart, confirm node version:
+- Confirm node version:
 
 ```
 node -v
@@ -82,13 +81,13 @@ v10.4.1
 Install cec-client
 ------------------
 
+- NOTE: If not using cec-client, need to remove references to it in `app.js` and `/bin/www`
+
 - Install `cec-client`:
 
 ```
 sudo apt-get install cec-utils -y
 ```
-
-- NOTE: May already be installed, if so continue to next step
 
 - Confirm version:
 
@@ -99,10 +98,39 @@ cec-client -i
 libCEC version: 4.0.2, git revision: libcec-4.0.2+30-8adc786~dirty, compiled on Mon Aug 21 09:41:41 UTC 2017 by root@hostname: Name or service not known on Linux 4.4.0-92-generic (armv7l), features: P8_USB, DRM, P8_detect, randr, RPi
 ```
 
+- NOTE: Occasionally an error will appear on the first run of cec-client, it can be disregarded:
+
+```
+libCEC version: 4.0.2, git revision: libcec-4.0.2+30-8adc786~dirty, compiled on Mon Aug 21 09:41:41 UTC 2017 by root@hostname: Name or service not known on Linux 4.4.0-92-generic (armv7l), features: P8_USB, DRM, P8_detect, randr, RPi
+*** Error in `cec-client': corrupted double-linked list: 0x0015dcf0 ***
+Aborted
+```
+
 - Alternately, follow the instructions and install from:
 
 ```
 https://github.com/Pulse-Eight/libcec
+```
+
+
+Install lirc
+------------
+
+- NOTE: If not using lirc, need to remove references to it in `app.js` and `/bin/www`
+
+- Install `lirc`:
+
+```
+sudo apt-get install lirc -y
+```
+
+- Confirm version:
+
+```
+lircd -v
+```
+```
+lircd 0.9.4c
 ```
 
 
