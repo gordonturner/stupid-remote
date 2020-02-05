@@ -20,6 +20,6 @@
     "pug": "2.0.3",
     "serve-favicon": "^2.5.0",
     "sleep": "^6.1.0",
-    "swagger-jsdoc": "1.9.7"
+    "swagger-jsdoc": "^3.5.0"
   }
 }
