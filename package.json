@@ -12,7 +12,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "3.1.0",
     "express": "^4.16.3",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "lirc_node": "0.0.4",
     "morgan": "^1.9.1",
     "node-cec": "^0.1.2",
